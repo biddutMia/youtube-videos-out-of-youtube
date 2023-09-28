@@ -1,12 +1,20 @@
+import { useStoreState, useStoreActions } from "easy-peasy";
 import { useEffect } from "react";
-import getPlayList from "../api/getPlaylist";
 
 const javascriptPlayListId = "PL_XxuZqN0xVAu_dWUVFbscqZdTzE8t6Z1";
 const fullStackArmy = "PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl";
 
 const App = () => {
+  const data = useStoreState((state) => state);
+  console.log(data);
+  const {
+    playList: { getPlayListItem },
+  } = useStoreActions((actions) => actions);
+  // console.log(playList);
+
   useEffect(() => {
-    getPlayList(javascriptPlayListId).then((item) => console.log("data", item));
+    getPlayListItem(javascriptPlayListId);
+    getPlayListItem(fullStackArmy);
   }, []);
 
   return (
