@@ -31,8 +31,12 @@ const App = () => {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/player/:playListId" element={<VideoPlayer />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/player/:playListId" element={<VideoPlayer />} />
+          <Route
+            path="/player/:playListId/:videoId"
+            element={<VideoPlayer />}
+          />
         </Routes>
       </Container>
     </div>

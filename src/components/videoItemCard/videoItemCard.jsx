@@ -15,7 +15,7 @@ const VideoItemCard = ({ videos }) => {
   return (
     <div>
       <Card>
-        <CardMedia sx={{ height: 140 }} image={url} title="green iguana" />
+          <CardMedia sx={{ height: 140 }} image={url} />
       </Card>
     </div>
   );
