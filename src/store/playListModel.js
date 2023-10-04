@@ -8,9 +8,13 @@ const playListModel = {
     state.data[payload.playListId] = payload;
   }),
 
-  getPlayListItem: thunk(async ({ addPlayListItem }, payload) => {
-    const playList = await getPlayList(payload);
-    addPlayListItem(playList);
+  getPlayListItem: thunk(async ({ addPlayListItem }, payload, { getState }) => {
+    const state = getState();
+
+    if (!state.data[payload]) {
+      const playList = await getPlayList(payload);
+      addPlayListItem(playList);
+    }
   }),
 };
 
