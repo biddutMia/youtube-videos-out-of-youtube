@@ -5,13 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const VideoItemCard = ({ videos }) => {
-  const {
-    thumbnails: { default: defaultThumbnails },
-  } = videos;
-
-  const { height, url, width } = defaultThumbnails;
-
+const RecentItemCard = ({url}) => {
   return (
     <div>
       <Card>
@@ -21,4 +15,4 @@ const VideoItemCard = ({ videos }) => {
   );
 };
 
-export default VideoItemCard;
+export default RecentItemCard;

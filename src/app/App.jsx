@@ -4,6 +4,7 @@ import PlayList from "../components/playList/playList";
 import { Routes, Route, useParams } from "react-router-dom";
 import VideoPlayer from "../components/videoPlayer/VideoPlayer";
 import { useStoreState } from "easy-peasy";
+import RecentItems from "../components/recentItems/RecentItems";
 
 const javascriptPlayListId = "PL_XxuZqN0xVAu_dWUVFbscqZdTzE8t6Z1";
 const fullStackArmyPlayListId = "PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl";
@@ -12,7 +13,12 @@ const anotherSongPlayListId = "PLPL4K7cytXzMMaq94sxdEcmwNZxfD6x4U";
 const expressPlayListid = "PL_XxuZqN0xVBfji5SwKd-CQijtdmcUTMU";
 
 const Home = () => {
-  return <PlayList />;
+  return (
+    <div>
+      <RecentItems />
+      <PlayList />
+    </div>
+  );
 };
 
 const About = () => {

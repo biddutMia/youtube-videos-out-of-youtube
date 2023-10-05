@@ -26,12 +26,11 @@ const VideoPlayer = () => {
   return (
     <div>
       <Grid container>
-        <Grid item md={4} sx={{ height: "600px", overflow: "auto" }}>
+        <Grid item md={4} sx={{ height: "590px", overflow: "auto" }}>
           {playList?.playListItems.map((item, i) => {
             if (item.videoId == videoId) {
               getVideoDetailsByVideoId = item;
             }
-            console.log(getVideoDetailsByVideoId);
 
             return (
               <Link to={`/player/${playListId}/${item.videoId}`} key={i}>
@@ -45,20 +44,22 @@ const VideoPlayer = () => {
         <Grid item md={7.2} sx={{ marginLeft: "20px" }}>
           <Stack>
             <YouTube videoId={videoId} opts={opts} />
-            <div style={{ marginTop: "20px" }}>
-              Title:
-              {getVideoDetailsByVideoId?.videoTitle}
-            </div>
-            <div
-              style={{
-                marginTop: "10px",
-                overflowY: "scroll",
-                height: "150px",
-              }}
-            >
-              description:
-              {getVideoDetailsByVideoId?.videoDescription}
-            </div>
+
+            {getVideoDetailsByVideoId.videoTitle && (
+              <div style={{ marginTop: "20px" }}>
+                Title:
+                {" " + getVideoDetailsByVideoId?.videoTitle}
+              </div>
+            )}
+
+            {getVideoDetailsByVideoId.videoDescription && (
+              <div
+                style={{ marginTop: "20px", height: "160px", overflow: "auto" }}
+              >
+                Description:
+                {" " + getVideoDetailsByVideoId?.videoDescription}
+              </div>
+            )}
           </Stack>
         </Grid>
       </Grid>

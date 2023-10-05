@@ -30,12 +30,24 @@ const Menu = () => {
         <Container maxWidth="md">
           <Toolbar variant="dense">
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link component={RouterLink} to="/home" underline="none" sx={{color: 'black'}}>
+              <Link
+                component={RouterLink}
+                to="/home"
+                underline="none"
+                sx={{ color: "black" }}
+              >
                 Clean Youtube
               </Link>
             </Typography>
             <Button color="info" variant="contained" onClick={handleClickOpen}>
-              add playlist
+              <Link
+                component={RouterLink}
+                to="/home"
+                underline="none"
+                sx={{ color: "black" }}
+              >
+                add playlist
+              </Link>
             </Button>
           </Toolbar>
         </Container>
