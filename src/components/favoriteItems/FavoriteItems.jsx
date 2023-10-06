@@ -1,24 +1,26 @@
 import { Stack, Grid, Typography, Box, Button } from "@mui/material";
 import ItemCard from "../recentAndFavoriteItemCard/RecentAndFavoriteItemCard";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import { Link } from "react-router-dom";
 
-const RecentItems = () => {
+const FavoriteItems = () => {
   const state = useStoreState((state) => state);
-  const { clearRecents } = useStoreActions((actions) => actions.recents);
+  const {
+    favorites: { clearFavorites },
+  } = useStoreActions((actions) => actions);
 
   const {
     playLists: { data },
-    recents: { items },
+    favorites: { items },
   } = state;
 
   return (
     <div>
       <Box>
         <Stack direction="row" justifyContent={"space-between"}>
-          <Typography variant="overline">Recent Playlists</Typography>
-          <Button variant="contained" size="small" onClick={clearRecents}>
-            clear recent items
+          <Typography variant="overline">Favourite Playlists</Typography>
+          <Button variant="contained" size="small" onClick={clearFavorites}>
+            clear favorite items
           </Button>
         </Stack>
       </Box>
@@ -26,15 +28,9 @@ const RecentItems = () => {
       <Grid container sx={{ marginBottom: "20px" }} spacing={1}>
         {items.length != 0 &&
           items.map((item, i) => {
-            const recentPlayLists = data[item];
+            const favoritePlayLists = data[item];
 
-            // const {
-            //   playListThumbnalis: {
-            //     default: { url },
-            //   },
-            // } = recentPlayLists;
-
-            const url = recentPlayLists?.playListThumbnalis?.default?.url;
+            const url = favoritePlayLists.playListThumbnalis.default.url;
 
             return (
               <Grid item md={3} key={i}>
@@ -49,4 +45,4 @@ const RecentItems = () => {
   );
 };
 
-export default RecentItems;
+export default FavoriteItems;

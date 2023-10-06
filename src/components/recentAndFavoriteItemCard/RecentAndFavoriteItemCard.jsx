@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const RecentItemCard = ({url}) => {
+const ItemCard = ({ url }) => {
   return (
     <div>
       <Card>
@@ -15,4 +15,4 @@ const RecentItemCard = ({url}) => {
   );
 };
 
-export default RecentItemCard;
+export default ItemCard;

@@ -1,18 +1,17 @@
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreState } from "easy-peasy";
 import PlayListItemCard from "../playListItemCard/PlayListItemCard";
-import { Box, Grid, ListItem, Stack, Typography } from "@mui/material";
+import { Box, Grid, ListItem, Stack, Typography, Button } from "@mui/material";
 
 const PlayList = () => {
   const {
-    playList: { data },
+    playLists: { data },
   } = useStoreState((state) => state);
 
   return (
     <Box>
       <Box>
-        <Stack direction="row" justifyContent={"space-between"}>
+        <Stack>
           <Typography variant="overline">Youtube video Playlists</Typography>
-          <Typography variant="button">Reset</Typography>
         </Stack>
       </Box>
 

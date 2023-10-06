@@ -8,6 +8,10 @@ const playListModel = {
     state.data[payload.playListId] = payload;
   }),
 
+  clearPlayListItem: action((state, payload) => {
+    delete state.data[payload];
+  }),
+
   getPlayListItem: thunk(async ({ addPlayListItem }, payload, { getState }) => {
     const state = getState();
 

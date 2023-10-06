@@ -4,9 +4,9 @@ import favoriteModel from "./favoriteModel";
 import recentModel from "./recentModel";
 
 const store = createStore({
-  playList: playListModel,
+  playLists: playListModel,
   favorites: favoriteModel,
-  recent: recentModel,
+  recents: recentModel,
 });
 
 export default store;

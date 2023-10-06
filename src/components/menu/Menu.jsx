@@ -11,7 +11,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Link from "@mui/material/Link";
 
 const Menu = () => {
-  const { getPlayListItem } = useStoreActions((actions) => actions.playList);
+  const { getPlayListItem } = useStoreActions((actions) => actions.playLists);
 
   const [open, setOpen] = useState(false);
 
@@ -32,7 +32,7 @@ const Menu = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link
                 component={RouterLink}
-                to="/home"
+                to="/"
                 underline="none"
                 sx={{ color: "black" }}
               >
@@ -42,7 +42,7 @@ const Menu = () => {
             <Button color="info" variant="contained" onClick={handleClickOpen}>
               <Link
                 component={RouterLink}
-                to="/home"
+                to="/"
                 underline="none"
                 sx={{ color: "black" }}
               >

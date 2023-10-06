@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 
 const VideoPlayer = () => {
   const {
-    playList: { data },
+    playLists: { data },
   } = useStoreState((state) => state);
   const { playListId, videoId } = useParams();
+
   const playList = data[playListId];
+  console.log("play", playList);
 
   const opts = {
     height: "350",
@@ -48,7 +50,10 @@ const VideoPlayer = () => {
             {getVideoDetailsByVideoId.videoTitle && (
               <div style={{ marginTop: "20px" }}>
                 Title:
-                {" " + getVideoDetailsByVideoId?.videoTitle}
+                {" " +
+                  getVideoDetailsByVideoId?.videoTitle +
+                  "" +
+                  playList.channelTitle}
               </div>
             )}
 

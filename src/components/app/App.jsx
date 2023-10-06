@@ -1,20 +1,16 @@
 import { Container } from "@mui/material";
-import Menu from "../components/menu/Menu";
-import PlayList from "../components/playList/playList";
+import Menu from "../menu/Menu";
+import PlayList from "../playList/playList";
 import { Routes, Route, useParams } from "react-router-dom";
-import VideoPlayer from "../components/videoPlayer/VideoPlayer";
+import VideoPlayer from "../videoPlayer/VideoPlayer";
 import { useStoreState } from "easy-peasy";
-import RecentItems from "../components/recentItems/RecentItems";
-
-const javascriptPlayListId = "PL_XxuZqN0xVAu_dWUVFbscqZdTzE8t6Z1";
-const fullStackArmyPlayListId = "PL_XxuZqN0xVD0op-QDEgyXFA4fRPChvkl";
-const songPlayListId = "PLPL4K7cytXzOOKVxSjWtYL4c0sdHXaHqN";
-const anotherSongPlayListId = "PLPL4K7cytXzMMaq94sxdEcmwNZxfD6x4U";
-const expressPlayListid = "PL_XxuZqN0xVBfji5SwKd-CQijtdmcUTMU";
+import RecentItems from "../recentItems/RecentItems";
+import FavoriteItems from "../favoriteItems/FavoriteItems";
 
 const Home = () => {
   return (
     <div>
+      <FavoriteItems />
       <RecentItems />
       <PlayList />
     </div>
@@ -35,7 +31,7 @@ const App = () => {
       <Menu />
       <Container maxWidth="md" sx={{ marginTop: "60px" }}>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/player/:playListId" element={<VideoPlayer />} />
