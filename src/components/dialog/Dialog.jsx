@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 
-const DialogBox = ({ handleClose, open }) => {
+const DialogBox = ({ handleClose, open, setOpen }) => {
   const [state, setState] = useState({ playListId: "" });
 
   const handleChange = (e) => {
@@ -16,9 +16,27 @@ const DialogBox = ({ handleClose, open }) => {
     });
   };
 
+  const validate = (playListId) => {
+    if (!playListId) {
+      alert("playlist id could not be null or undefined");
+      return;
+    } else if (!playListId.startsWith("PL")) {
+      const playListLink = playListId.split("=");
+      const originalPId = playListLink.filter((item) => item.startsWith("PL"));
+      if (originalPId.length == 0) {
+        alert("please provide a valid playlist id or link");
+        return false;
+      }
+      playListId = originalPId[0];
+    }
+
+    handleClose(playListId);
+    return true;
+  };
+
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogContent>
           <DialogContentText>
             plese provide a valid youtube playlist id for watch each playlist
@@ -38,11 +56,13 @@ const DialogBox = ({ handleClose, open }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button
             onClick={() => {
-              handleClose(state.playListId);
-              setState({ playListId: "" });
+              const data = validate(state.playListId);
+              if (data) {
+                setState({ playListId: "" });
+              }
             }}
           >
             Submit

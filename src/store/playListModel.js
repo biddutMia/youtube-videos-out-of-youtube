@@ -3,6 +3,8 @@ import getPlayList from "../api/getPlaylist";
 
 const playListModel = {
   data: {},
+  error: { message: "" },
+  loading: { value: false },
 
   addPlayListItem: action((state, payload) => {
     state.data[payload.playListId] = payload;
@@ -16,8 +18,16 @@ const playListModel = {
     const state = getState();
 
     if (!state.data[payload]) {
-      const playList = await getPlayList(payload);
-      addPlayListItem(playList);
+      try {
+        state.loading.value = true;
+        const playList = await getPlayList(payload);
+        addPlayListItem(playList);
+      } catch (e) {
+        state.error.message = e.message;
+      } finally {
+        state.loading.value = false;
+        console.log("final state", state);
+      }
     }
   }),
 };

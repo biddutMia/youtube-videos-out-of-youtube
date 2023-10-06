@@ -52,7 +52,7 @@ const Menu = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <DialogBox open={open} handleClose={handleClose} />
+      <DialogBox open={open} setOpen={setOpen} handleClose={handleClose} />
     </Box>
   );
 };
