@@ -11,7 +11,12 @@ const PlayList = () => {
     <Box>
       <Box>
         <Stack>
-          <Typography variant="overline">Youtube video Playlists</Typography>
+          <Typography variant="overline" sx={{ fontWeight: "800" }}>
+            <span style={{ color: "red", fontSize: "17px" }}>
+              Youtube video
+            </span>{" "}
+            Playlists
+          </Typography>
         </Stack>
       </Box>
 

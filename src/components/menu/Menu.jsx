@@ -26,7 +26,7 @@ const Menu = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ background: "#ECDCD4" }}>
         <Container maxWidth="md">
           <Toolbar variant="dense">
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -44,7 +44,7 @@ const Menu = () => {
                 component={RouterLink}
                 to="/"
                 underline="none"
-                sx={{ color: "black" }}
+                sx={{ color: "white" }}
               >
                 add playlist
               </Link>

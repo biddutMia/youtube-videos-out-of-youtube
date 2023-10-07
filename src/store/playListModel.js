@@ -24,6 +24,7 @@ const playListModel = {
         addPlayListItem(playList);
       } catch (e) {
         state.error.message = e.message;
+        alert(e.error.message);
       } finally {
         state.loading.value = false;
         console.log("final state", state);
