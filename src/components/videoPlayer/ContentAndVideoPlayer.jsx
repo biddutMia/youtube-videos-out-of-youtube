@@ -12,7 +12,6 @@ const ContentAndVideoPlayer = () => {
   const { playListId, videoId } = useParams();
 
   const playList = data[playListId];
-  console.log("play", playList);
 
   const opts = {
     height: "350",
@@ -53,7 +52,7 @@ const ContentAndVideoPlayer = () => {
               </div>
             )}
 
-            {playList.channelTitle && (
+            {playList?.channelTitle && getVideoDetailsByVideoId?.videoTitle && (
               <div
                 style={{
                   marginTop: "5px",

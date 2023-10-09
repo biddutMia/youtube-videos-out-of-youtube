@@ -21,9 +21,11 @@ const RecentItems = () => {
             <span style={{ color: "red", fontSize: "17px" }}>Recent</span>{" "}
             Playlists
           </Typography>
-          <Button variant="contained" size="small" onClick={clearRecents}>
-            clear recent items
-          </Button>
+          <div>
+            <Button variant="contained" size="small" onClick={clearRecents}>
+              clear recent items
+            </Button>
+          </div>
         </Stack>
       </Box>
 

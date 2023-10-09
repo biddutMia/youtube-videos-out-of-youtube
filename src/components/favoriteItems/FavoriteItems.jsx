@@ -23,9 +23,11 @@ const FavoriteItems = () => {
             <span style={{ color: "red", fontSize: "17px" }}>Favorite</span>{" "}
             Playlists
           </Typography>
-          <Button variant="contained" size="small" onClick={clearFavorites}>
-            clear favorite items
-          </Button>
+          <div>
+            <Button variant="contained" size="small" onClick={clearFavorites}>
+              clear favorite items
+            </Button>
+          </div>
         </Stack>
       </Box>
 

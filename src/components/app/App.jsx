@@ -25,7 +25,6 @@ const text = () => {
 
 const Home = () => {
   const playLists = useStoreState((state) => state.playLists);
-  console.log(playLists);
 
   const opts = {
     height: "350",
