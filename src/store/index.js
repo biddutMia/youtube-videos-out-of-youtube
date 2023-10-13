@@ -4,17 +4,10 @@ import favoriteModel from "./favoriteModel";
 import recentModel from "./recentModel";
 import { persist } from "easy-peasy";
 
-const store = createStore(
-  persist(
-    {
-      playLists: playListModel,
-      favorites: favoriteModel,
-      recents: recentModel,
-    },
-    {
-      storage: "localStorage",
-    }
-  )
-);
+const store = createStore({
+  playLists: playListModel,
+  favorites: favoriteModel,
+  recents: recentModel,
+});
 
 export default store;

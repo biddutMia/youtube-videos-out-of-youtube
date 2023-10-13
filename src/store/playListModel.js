@@ -14,22 +14,28 @@ const playListModel = {
     delete state.data[payload];
   }),
 
-  getPlayListItem: thunk(async ({ addPlayListItem }, payload, { getState }) => {
-    const state = getState();
+  getPlayListItem: thunk(
+    async (
+      { addPlayListItem },
+      payload = "PL_XxuZqN0xVAu_dWUVFbscqZdTzE8t6Z1",
+      { getState }
+    ) => {
+      const state = getState();
 
-    if (!state.data[payload]) {
-      try {
-        state.loading.value = true;
-        const playList = await getPlayList(payload);
-        addPlayListItem(playList);
-      } catch (e) {
-        state.error.message = e.message;
-        alert(e.message);
-      } finally {
-        state.loading.value = false;
+      if (!state.data[payload]) {
+        try {
+          state.loading.value = true;
+          const playList = await getPlayList(payload);
+          addPlayListItem(playList);
+        } catch (e) {
+          state.error.message = e.message;
+          alert(e.message);
+        } finally {
+          state.loading.value = false;
+        }
       }
     }
-  }),
+  ),
 };
 
 export default playListModel;
